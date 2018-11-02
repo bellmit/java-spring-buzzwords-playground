@@ -1,4 +1,4 @@
-package pl.piotrmacha.blog.security;
+package pl.piotrmacha.blog.utils;
 
 import java.util.Arrays;
 

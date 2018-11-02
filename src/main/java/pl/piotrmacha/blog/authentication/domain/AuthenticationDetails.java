@@ -1,7 +1,7 @@
 package pl.piotrmacha.blog.authentication.domain;
 
 import pl.piotrmacha.blog.person.domain.Person;
-import pl.piotrmacha.blog.security.DisposableString;
+import pl.piotrmacha.blog.utils.DisposableString;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -32,5 +32,13 @@ final public class AuthenticationDetails {
         this.email = email;
         this.passwordHash = PasswordHash.fromPlaintextPassword(password);
         this.person = person;
+    }
+
+    public UUID personId() {
+        return personId;
+    }
+
+    public boolean isPasswordCorrect(DisposableString password) {
+        return passwordHash.verify(password);
     }
 }

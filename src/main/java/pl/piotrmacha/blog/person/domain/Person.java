@@ -3,7 +3,7 @@ package pl.piotrmacha.blog.person.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.piotrmacha.blog.authentication.domain.AuthenticationDetails;
 import pl.piotrmacha.blog.person.command.CreatePersonCommand;
-import pl.piotrmacha.blog.security.DisposableString;
+import pl.piotrmacha.blog.utils.DisposableString;
 
 import javax.persistence.*;
 import java.time.Clock;
