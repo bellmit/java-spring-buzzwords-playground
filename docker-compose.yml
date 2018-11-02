@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/spring.debug.dockerfile
+    environment:
+      JAVA_OPTS: -Xms1G -Xmx1G
+    ports:
+      - 8080:8080
+      - 5005:5005
+    links:
+      - db
+    volumes:
+      - ./build/libs/blog-0.0.1-SNAPSHOT.jar:/opt/application.jar
+  db:
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_DB: db_name
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_pass
+    ports:
+      - 5433:5432
+    volumes:
+      - ./var/postgres:/var/lib/postgresql
